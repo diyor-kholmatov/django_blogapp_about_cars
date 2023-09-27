@@ -23,6 +23,7 @@ class Cars(models.Model):
         verbose_name_plural = 'Luxury cars'
         ordering = ['-time_create', 'title']
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name='Category')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
