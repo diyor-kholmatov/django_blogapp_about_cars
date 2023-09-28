@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from .models import *
+
+
 # Register your models here.
 
 
@@ -10,8 +12,8 @@ class CarsAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     search_fields = ('title', 'content')
     list_editable = ('is_published',)
-    list_filter = ('is_published', 'time_create' )
-    prepopulated_fields = {'slug': ('title', )}
+    list_filter = ('is_published', 'time_create')
+    prepopulated_fields = {'slug': ('title',)}
     fields = ('title', 'slug', 'cat', 'content', 'photo', 'get_html_photo', 'is_published')
     readonly_fields = ('time_create', 'time_update', 'get_html_photo')
 
@@ -21,12 +23,12 @@ class CarsAdmin(admin.ModelAdmin):
 
     get_html_photo.short_description = 'Photo'
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
-    search_fields = ('name', )
+    search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
-
 
 
 admin.site.register(Cars, CarsAdmin)
